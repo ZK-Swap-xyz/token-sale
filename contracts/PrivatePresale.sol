@@ -10,7 +10,6 @@ import "@openzeppelin/contracts/utils/math/Math.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
-//grail sale contract with emergency withdraw https://arbiscan.io/address/0x66ec1ee6c3ad04d7629ce4a6d5d19ba99c365d29#code
 
 contract PrivateSale is Ownable, ReentrancyGuard {
     using SafeERC20 for IERC20;
@@ -44,13 +43,13 @@ contract PrivateSale is Ownable, ReentrancyGuard {
 
     constructor(
         IERC20 _salesToken,
-        uint256 _tokensToSell, // 19,650,000
-        uint256 _ethersToRaise, // 450 ether
-        uint256 _refundThreshold, // 80 ether
-        uint256 _minCommit, // 0.1 ether
-        uint256 _maxCommit, // 2 ether
+        uint256 _tokensToSell,
+        uint256 _ethersToRaise,
+        uint256 _refundThreshold,
+        uint256 _minCommit,
+        uint256 _maxCommit,
         address _burnAddress,
-        bytes32 _root // set to treasury
+        bytes32 _root
     ) {
         require(_ethersToRaise > 0, "Ethers to raise should be greater than 0");
         require(
